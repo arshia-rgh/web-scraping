@@ -1,16 +1,12 @@
 import aiohttp
 import asyncio
+from url import base_url
 
 
-async def fetch_data(url):
+async def fetch(url):
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
-            if response.status != 200:
-                raise Exception("Fail to load the page")
+            content = await response.text()
+            return content
 
-            return await response.text()
-
-
-url = "https://bama.ir/car"
-
-print(asyncio.run(fetch_data(url)))
+print(fetch(base_url))

@@ -25,6 +25,4 @@ class Url:
         return urljoin(self.base_url, path)
 
 
-url = Url("https://bama.ir/")
-final_url = url.set_category("car").set_brand("audi").build()
-print(final_url)
+base_url = Url("https://bama.ir/")
