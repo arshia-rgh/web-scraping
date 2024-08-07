@@ -9,4 +9,4 @@ async def fetch(url):
             content = await response.text()
             return content
 
-print(fetch(base_url))
+print(asyncio.run(fetch(base_url)))
