@@ -1,3 +1,5 @@
+import time
+
 from urls.url import generate_urls
 import aiohttp
 from bs4 import BeautifulSoup
@@ -8,7 +10,8 @@ import asyncio
 class Scrape:
     def __init__(self):
         self.urls = generate_urls()
-        self.html_content = defaultdict(list)
+        self._html_content = None
+        self._html_content_fetched = None
 
     async def fetch_url_content(self, session, url):
         async with session.get(url) as response:
@@ -17,11 +20,13 @@ class Scrape:
             return text
 
     async def fetch_all_html_content(self):
+        self._html_content = defaultdict(list)
+
         async with aiohttp.ClientSession() as session:
             tasks = [self.fetch_url_content(session, url) for url in self.urls]
-            responses = await asyncio.gather(*tasks)
-            return responses
+            await asyncio.gather(*tasks)
+        self._html_content_fetched = True
 
-
-scrape = Scrape()
-print(asyncio.run(scrape.fetch_all_html_content()))
+    def __getattr__(self, name):
+        if name == "html_content" and not self._html_content_fetched:
+            pass
