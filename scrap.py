@@ -22,12 +22,12 @@ class Scrape:
     def extract_links(self):
         links = {}
         for url, soup_list in self.soup.items():
-            links[url] = [a['href'] for soup in soup_list for a in soup.find_all('a', href=True)]
+            links[url] = [a["href"] for soup in soup_list for a in soup.find_all("a", href=True)]
         return links
 
     @staticmethod
     def save(data, filename):
-        with open(filename, 'w', encoding="utf-8") as f:
+        with open(filename, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
 
 
