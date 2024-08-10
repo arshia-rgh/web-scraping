@@ -1,4 +1,4 @@
-from scrape import scrape_instance
+from scrap import scrape_instance
 
 
 def main():
