@@ -33,4 +33,4 @@ class Scrawl:
         raise AttributeError(f"'{self.__class__.__name__}' object has no attribute {name}")
 
 
-scrawl = Scrawl()
+scrawl_instance = Scrawl()
