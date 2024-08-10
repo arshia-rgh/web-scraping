@@ -16,7 +16,7 @@ class Scrape:
     async def fetch_url_content(self, session, url):
         async with session.get(url) as response:
             text = await response.text()
-            self.html_content[url].append(text)
+            self._html_content[url].append(text)
             return text
 
     async def fetch_all_html_content(self):
