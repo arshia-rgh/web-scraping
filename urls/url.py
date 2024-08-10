@@ -36,9 +36,9 @@ class Url:
 def generate_urls():
     urls = []
 
-    for category in CATEGORIES:
-        if BRANDS:
-            for brand in BRANDS:
+    for category in categories_list:
+        if brands_list:
+            for brand in brands_list:
                 url = Url.add_url(base_url=base_url, category=category, brand=brand)
         else:
             url = Url.add_url(base_url=base_url, category=category)
