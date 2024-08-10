@@ -1,8 +1,12 @@
 from typing import Final
+import os
+from dotenv import load_dotenv
 
-base_url: Final = "https://bama.ir/"
+load_dotenv()
+
+base_url: Final = "https://bama.ir/"  # currently only for bama website
 
 # Only "car", "motorcycle", "truck" allowed
-CATEGORIES = ("car", "truck")
+CATEGORIES = os.getenv("CATEGORIES")
 
-BRANDS = ()
+BRANDS = os.getenv("BRANDS")
