@@ -33,9 +33,14 @@ This project is a web scraper that extracts links and titles from specified URLs
     ```
 
 ## Usage
-1. Add the categories and brands you want to scrape to the `url_setting` file.
+1. Copy the `sample.env` file to `.env`:
+    ```sh
+    cp sample.env .env
+    ```
 
-2. Run the scraper:
+2. Edit the `.env` file to specify the categories and brands you want to scrape.
+
+3. Run the scraper:
     ```sh
     python main.py
     ```
