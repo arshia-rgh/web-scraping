@@ -7,7 +7,7 @@ from collections import defaultdict
 import asyncio
 
 
-class Scrape:
+class Scrawl:
     def __init__(self):
         self.urls = generate_urls()
         self._html_content = None
@@ -32,7 +32,3 @@ class Scrape:
             asyncio.run(self.fetch_all_html_content())
             return self._html_content
         raise AttributeError(f"'{self.__class__.__name__}' object has no attribute {name}")
-
-
-scrape = Scrape()
-print(scrape.html_content)
