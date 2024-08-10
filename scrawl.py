@@ -1,10 +1,9 @@
-import time
+import asyncio
+from collections import defaultdict
+
+import aiohttp
 
 from urls.url import generate_urls
-import aiohttp
-from bs4 import BeautifulSoup
-from collections import defaultdict
-import asyncio
 
 
 class Scrawl:
