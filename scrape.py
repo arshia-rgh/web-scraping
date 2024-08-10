@@ -10,18 +10,18 @@ class Scrape:
         self.urls = generate_urls()
         self.html_content = defaultdict(list)
 
-    async def fetch_url(self, session, url):
+    async def fetch_url_content(self, session, url):
         async with session.get(url) as response:
             text = await response.text()
             self.html_content[url].append(text)
             return text
 
-    async def fetch_html_content(self):
+    async def fetch_all_html_content(self):
         async with aiohttp.ClientSession() as session:
-            tasks = [self.fetch_url(session, url) for url in self.urls]
+            tasks = [self.fetch_url_content(session, url) for url in self.urls]
             responses = await asyncio.gather(*tasks)
             return responses
 
 
 scrape = Scrape()
-print(asyncio.run(scrape.fetch_html_content()))
+print(asyncio.run(scrape.fetch_all_html_content()))
