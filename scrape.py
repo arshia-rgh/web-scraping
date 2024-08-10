@@ -6,15 +6,16 @@ import asyncio
 
 
 class Scrape:
-    urls = generate_urls()
-    html_content = defaultdict(list)
+    def __init__(self):
+        self.urls = generate_urls()
+        self.html_content = defaultdict(list)
 
-    @classmethod
-    async def fetch_html_content(cls):
+    async def fetch_html_content(self):
         async with aiohttp.ClientSession() as session:
-            tasks = [session.get(url) for url in cls.urls]
-            response = await asyncio.gather(*tasks)
-            return response
+            tasks = [session.get(url) for url in self.urls]
+            responses = await asyncio.gather(*tasks)
+            return responses
 
 
-print(Scrape.fetch_html_content())
+scrape = Scrape()
+print(asyncio.run(scrape.fetch_html_content()))
