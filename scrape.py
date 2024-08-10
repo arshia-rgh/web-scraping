@@ -29,4 +29,10 @@ class Scrape:
 
     def __getattr__(self, name):
         if name == "html_content" and not self._html_content_fetched:
-            pass
+            asyncio.run(self.fetch_all_html_content())
+            return self._html_content
+        raise AttributeError(f"'{self.__class__.__name__}' object has no attribute {name}")
+
+
+scrape = Scrape()
+print(scrape.html_content)
