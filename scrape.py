@@ -15,3 +15,6 @@ class Scrape:
             tasks = [session.get(url) for url in cls.urls]
             response = await asyncio.gather(*tasks)
             return response
+
+
+print(Scrape.fetch_html_content())

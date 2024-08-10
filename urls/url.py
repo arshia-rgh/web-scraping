@@ -1,7 +1,6 @@
 from urllib.parse import urljoin
-from validator_category import validate_category
-import url_setting
-
+from .validator_category import validate_category
+from .url_setting import *
 
 class Url:
     def __init__(self, base_url):
@@ -36,9 +35,9 @@ class Url:
 def generate_urls():
     urls = []
 
-    for category in url_setting.CATEGORIES:
-        for brand in url_setting.BRANDS:
-            url = Url.add_url(base_url=url_setting.base_url, category=category, brand=brand)
+    for category in CATEGORIES:
+        for brand in BRANDS:
+            url = Url.add_url(base_url=base_url, category=category, brand=brand)
             urls.append(url)
 
     return urls
