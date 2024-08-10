@@ -11,7 +11,7 @@ class Scrape:
     def __init__(self):
         self.urls = generate_urls()
         self._html_content = None
-        self._html_content_fetched = None
+        self._html_content_fetched = False
 
     async def fetch_url_content(self, session, url):
         async with session.get(url) as response:
