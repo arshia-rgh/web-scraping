@@ -23,7 +23,6 @@ class TestUrl:
         url_instance.set_brand("toyota")
         assert url_instance.brand == "toyota"
 
-    @pytest.mark.skip
     def test_build(self, url_instance):
         assert url_instance.build() == "www.test.com"
         url_instance.set_category("truck")
