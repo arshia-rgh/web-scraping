@@ -28,3 +28,11 @@ class TestUrl:
         url_instance.set_category("truck")
         url_instance.set_brand("toyota")
         assert url_instance.build() == "www.test.com/truck/toyota"
+
+    def test_add_url(self):
+        assert Url.add_url(
+            base_url="www.test.com",
+            category="car",
+            brand="toyota"
+
+        ) == "www.test.com/car/toyota"
