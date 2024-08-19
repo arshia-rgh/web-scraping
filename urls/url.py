@@ -1,4 +1,3 @@
-from urllib.parse import urljoin
 from .validator_category import validate_category
 from .url_setting import *
 
@@ -21,9 +20,12 @@ class Url:
         return self
 
     def build(self):
-        path = f"{self.category}/{self.brand}"
-
-        return urljoin(self.base_url, path)
+        url = self.base_url
+        if self.category:
+            url += f"/{self.category}"
+        if self.brand:
+            url += f"/{self.brand}"
+        return url
 
     @classmethod
     def add_url(cls, base_url, category="", brand=""):
