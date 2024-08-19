@@ -16,3 +16,7 @@ class TestUrl:
 
         with pytest.raises(ValueError):
             url_instance.set_category("wrong category")
+
+    def test_set_brand(self, url_instance):
+        url_instance.set_brand("toyota")
+        assert url_instance.brand == "toyota"
