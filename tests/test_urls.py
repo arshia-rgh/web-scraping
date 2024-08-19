@@ -4,17 +4,15 @@ from urls.url import Url, generate_urls
 
 class TestUrl:
 
-    def test_initiate_Url(self):
-        url = Url("www.test.com")
-        assert isinstance(url, Url)
-        assert url.category == ""
-        assert url.base_url == "www.test.com"
-        assert url.brand == ""
+    def test_initiate_Url(self, url_instance):
+        assert isinstance(url_instance, Url)
+        assert url_instance.category == ""
+        assert url_instance.base_url == "www.test.com"
+        assert url_instance.brand == ""
 
-    def test_set_category(self):
-        url = Url("www.test.com")
-        url.set_category("car")
-        assert url.category == "car"
+    def test_set_category(self, url_instance):
+        url_instance.set_category("car")
+        assert url_instance.category == "car"
 
         with pytest.raises(ValueError):
-            url.set_category("wrong")
+            url_instance.set_category("wrong category")
