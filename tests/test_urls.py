@@ -1,4 +1,6 @@
 import pytest
+
+from tests.conftest import url_instance
 from urls.url import Url, generate_urls
 
 
@@ -20,3 +22,10 @@ class TestUrl:
     def test_set_brand(self, url_instance):
         url_instance.set_brand("toyota")
         assert url_instance.brand == "toyota"
+
+    @pytest.mark.skip
+    def test_build(self, url_instance):
+        assert url_instance.build() == "www.test.com"
+        url_instance.set_category("truck")
+        url_instance.set_brand("toyota")
+        assert url_instance.build() == "www.test.com/truck/toyota"
