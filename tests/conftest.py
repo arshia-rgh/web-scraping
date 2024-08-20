@@ -1,4 +1,5 @@
 import pytest
+
 from urls.url import Url
 
 

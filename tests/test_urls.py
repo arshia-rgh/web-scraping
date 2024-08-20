@@ -39,6 +39,7 @@ class TestUrl:
 
 
 class TestGenerateUrls:
+
     def test_generate_urls_with_brands(self, generate_urls_setup):
         expected_urls = [
             "www.test.com/car/ford",

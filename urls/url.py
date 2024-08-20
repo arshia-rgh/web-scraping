@@ -1,5 +1,5 @@
-from .validator_category import validate_category
 from .url_setting import *
+from .validator_category import validate_category
 
 
 class Url:
