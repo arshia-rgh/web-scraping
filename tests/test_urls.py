@@ -49,10 +49,11 @@ class TestGenerateUrls:
         ]
         assert set(generate_urls()) == set(expected_urls)
 
-    def test_without_brands(self, generate_urls_setup, monkeypatch):
+    def test_generate_urls_without_brands(self, generate_urls_setup, monkeypatch):
         monkeypatch.setattr("urls.url.brands_list", [])
         expected_urls = [
             "www.test.com/car",
             "www.test.com/truck",
         ]
         assert set(generate_urls()) == set(expected_urls)
+
