@@ -1,6 +1,8 @@
-from bs4 import BeautifulSoup
-from scrawl import scrawl_instance
 import json
+
+from bs4 import BeautifulSoup
+
+from scrawl import scrawl_instance
 
 
 class Scrape:
