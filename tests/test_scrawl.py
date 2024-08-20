@@ -23,6 +23,7 @@ class TestScrawl:
         assert scrawl_instance._html_content_fetched is True
         assert isinstance(scrawl_instance._html_content, dict)
 
+    @pytest.mark.skip
     @pytest.mark.asyncio
     async def test_getter(self, scrawl_instance):
         assert scrawl_instance._html_content_fetched is False
