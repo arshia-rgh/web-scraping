@@ -1,5 +1,6 @@
 import pytest
 
+from scrawl import Scrawl
 from urls.url import Url
 
 
@@ -18,5 +19,5 @@ def generate_urls_setup(monkeypatch):
 
 #  <--- test_scrawl --->
 @pytest.fixture
-def scrawl_setup():
-    pass
+def scrawl_instance():
+    return Scrawl()
