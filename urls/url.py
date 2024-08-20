@@ -42,9 +42,9 @@ def generate_urls():
         if brands_list:
             for brand in brands_list:
                 url = Url.add_url(base_url=base_url, category=category, brand=brand)
+                urls.append(url)
         else:
             url = Url.add_url(base_url=base_url, category=category)
-
-        urls.append(url)
+            urls.append(url)
 
     return urls

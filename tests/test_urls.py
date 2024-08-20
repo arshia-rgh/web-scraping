@@ -36,3 +36,14 @@ class TestUrl:
             brand="toyota"
 
         ) == "www.test.com/car/toyota"
+
+
+class TestGenerateUrls:
+    def test_generate_urls_with_brands(self, generate_urls_setup):
+        expected_urls = [
+            "www.test.com/car/ford",
+            "www.test.com/car/toyota",
+            "www.test.com/truck/ford",
+            "www.test.com/truck/toyota",
+        ]
+        assert set(generate_urls()) == set(expected_urls)
