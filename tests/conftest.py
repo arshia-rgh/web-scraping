@@ -1,5 +1,6 @@
 import pytest
 
+from scrap import Scrape
 from scrawl import Scrawl
 from urls.url import Url
 
@@ -21,3 +22,9 @@ def generate_urls_setup(monkeypatch):
 @pytest.fixture
 def scrawl_instance():
     return Scrawl()
+
+
+#  <--- test_scrap --->
+@pytest.fixture
+def scrape_instance():
+    return Scrape()
