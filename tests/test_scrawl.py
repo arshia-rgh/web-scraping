@@ -14,6 +14,8 @@ class TestScrawl:
         ]
         scrawl = Scrawl()
         assert isinstance(scrawl, Scrawl)
+        assert scrawl._html_content is None
+        assert scrawl._html_content_fetched == False
         assert set(scrawl.urls) == set(expected_urls)
 
     @pytest.mark.asyncio
