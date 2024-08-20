@@ -27,3 +27,7 @@ class TestScrawl:
     async def test_getter(self, scrawl_instance):
         assert scrawl_instance._html_content_fetched is False
         assert scrawl_instance._html_content is None
+        html_content = await scrawl_instance.html_content
+
+        assert scrawl_instance._html_content_fetched is True
+        assert isinstance(html_content, dict)
