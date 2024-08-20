@@ -57,3 +57,7 @@ class TestGenerateUrls:
         ]
         assert set(generate_urls()) == set(expected_urls)
 
+    def test_generate_urls_without_categories(self, generate_urls_setup, monkeypatch):
+        monkeypatch.setattr('urls.url.categories_list', [])
+
+        assert generate_urls() == ["www.test.com"]

@@ -37,14 +37,16 @@ class Url:
 
 def generate_urls():
     urls = []
-
-    for category in categories_list:
-        if brands_list:
-            for brand in brands_list:
-                url = Url.add_url(base_url=base_url, category=category, brand=brand)
+    if categories_list:
+        for category in categories_list:
+            if brands_list:
+                for brand in brands_list:
+                    url = Url.add_url(base_url=base_url, category=category, brand=brand)
+                    urls.append(url)
+            else:
+                url = Url.add_url(base_url=base_url, category=category)
                 urls.append(url)
-        else:
-            url = Url.add_url(base_url=base_url, category=category)
-            urls.append(url)
-
+    else:
+        url = Url.add_url(base_url=base_url)
+        urls.append(url)
     return urls
