@@ -30,6 +30,8 @@ class Scrawl:
         if name == "html_content" and not self._html_content_fetched:
             asyncio.run(self.fetch_all_html_content())
             return self._html_content
+        elif name == "html_content":
+            return self._html_content
         raise AttributeError(f"'{self.__class__.__name__}' object has no attribute {name}")
 
 
